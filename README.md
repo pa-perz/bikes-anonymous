@@ -8,20 +8,29 @@ Bikes Anonymous is a practice project made in Spring Boot which implements solut
 
 ## Installation
 
-Before building, JDK 17 must be installing in the host machine.
+#### Requirements
+- JDK 17
+- Docker
+
+#### Steps
 
 1. Clone this project
 2. `cd` into the new folder
 3. `./mvnw clean install`
-4. `./mvnw springboot:run`
+4. `docker run -p 27017:27017 --name ba-mongo -v /home/ba-mongo:/data/db -d mongo`
 
 ## Usage
 
-Before accessing any endpoint, first you must authenticate using the following credentials:
-- Username: user
-- Password: _{Gets regenerated each application restart. Check application logs to obtain.}_
+To run the application for development, use `./mvnw spring-boot:run`
 
-You can access exposed APIs at [localhost:8080/swagger-ui.html]()
+To access the other endpoints, you must first login in the endpoint `localhost:8080/login` or register at `localhost:8080/register`, using the following credentials:
 
+#### USER
+- Username: user@ba.com
+- Password: pass
 
+#### ADMIN
+- Username: admin@ba.com
+- Password: pass
 
+You can see the exposed APIs at [localhost:8080/swagger-ui.html]()
