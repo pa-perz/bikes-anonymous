@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ba_mongo
+  ba_mongo:
+    container_name: ba-mongo
+    image: "mongo:latest"
+    restart: always
+    volumes:
+      - /home/ba-mongo:/data/db
+    ports:
+      - "27017:27017"
